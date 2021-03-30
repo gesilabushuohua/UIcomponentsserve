@@ -10,9 +10,44 @@ export default (appInfo: EggAppInfo) => {
   // add your egg config in here
   config.middleware = [];
 
+  // enable file mode
+ /*  config.multipart = {
+    mode: 'file',
+    // add whitelist
+    fileExtensions: [ '.vue', '.md' ],
+  }; */
+
+  // error handler
+  config.onerror = {
+    all(err: any, ctx: any) {
+      ctx.msg = err;
+      ctx.status = 500;
+    },
+  };
+
+  const types = {
+    html: 1,
+    vue: 2,
+    react: 3,
+    1: 'html',
+    2: 'vue',
+    3: 'react'
+  };
+  config.types = types;
+
+  const typesArr = [ 'html', 'vue', 'react' ];
+  config.typesArr = typesArr;
+
+  config.security = {
+    csrf: {
+      enable: false
+    }
+  };
+
   // add your special config in here
   const bizConfig = {
     sourceUrl: `https://github.com/eggjs/examples/tree/master/${appInfo.name}`,
+    // 暂时关闭 CSRF 安全机制
   };
 
   // the return config will combines to EggAppConfig
