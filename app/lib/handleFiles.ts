@@ -19,7 +19,7 @@ class HandleFiles {
   async readFileToZipBuffer(dir: string) {
     const zip = new JSZIP();
     // read floder 
-    if (!this.readFileToZip(zip, dir)) {
+    if (!this.readFloder(zip, dir)) {
       return;
     }
     const buffer = await zip.generateAsync({
