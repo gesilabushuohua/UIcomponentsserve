@@ -11,8 +11,9 @@ export default class FileService extends Service {
   public async list(type: string) {
     const { config: { componentPath } } = this;
     const dirPath = path.join(componentPath, `/${type}`);
-    const files = fs.readdirSync(dirPath);
-    return files; 
+    const files = fs.readdirSync(dirPath, { withFileTypes: true});
+    const floders = files.filter(file => file.isDirectory()).map(file => file.name);
+    return floders; 
   }
 
   public async get(type: string, name: string) {
