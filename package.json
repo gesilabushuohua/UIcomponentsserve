@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "egg": "^2.6.1",
+    "egg-cors": "^2.2.3",
     "egg-scripts": "^2.6.0",
     "egg-validate": "^2.0.2",
     "jszip": "^3.6.0",
