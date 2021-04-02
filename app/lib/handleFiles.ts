@@ -18,7 +18,7 @@ class HandleFiles {
    */
   async readFileToZipBuffer(dir: string) {
     const zip = new JSZIP();
-    // read floder 
+    // read floder
     if (!this.readFloder(zip, dir)) {
       return;
     }
@@ -27,7 +27,7 @@ class HandleFiles {
       compression: 'DEFLATE',
       compressionOptions: {
         level: 9,
-      }
+      },
     });
     return buffer;
   }
@@ -117,7 +117,7 @@ class HandleFiles {
   }
 
   /**
-   * @description 
+   * @description
    */
   async readFileToReadStream(name: string) {
     if (!fs.existsSync(name)) {
@@ -129,7 +129,7 @@ class HandleFiles {
     const fileStream = fs.createReadStream(zipName);
     return {
       zipName,
-      fileStream
+      fileStream,
     };
   }
 

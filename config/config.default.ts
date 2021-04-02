@@ -11,7 +11,7 @@ export default (appInfo: EggAppInfo) => {
   config.middleware = [];
 
   // enable file mode
- /*  config.multipart = {
+  /*  config.multipart = {
     mode: 'file',
     // add whitelist
     fileExtensions: [ '.vue', '.md' ],
@@ -31,7 +31,7 @@ export default (appInfo: EggAppInfo) => {
     react: 3,
     1: 'html',
     2: 'vue',
-    3: 'react'
+    3: 'react',
   };
   config.types = types;
 
@@ -40,8 +40,13 @@ export default (appInfo: EggAppInfo) => {
 
   config.security = {
     csrf: {
-      enable: false
-    }
+      enable: false,
+    },
+  };
+
+  config.cors = {
+    origin: "*", // 跨任何域
+    allowMethods: "GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS", // 被允许的请求方式
   };
 
   // add your special config in here
